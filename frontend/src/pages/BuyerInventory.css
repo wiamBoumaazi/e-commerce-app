@@ -1,0 +1,11 @@
+.buyer-inventory {
+  max-width: 500px;
+}
+
+.buyer-prod-name {
+  max-width: 400px;
+}
+
+.item-card {
+  box-shadow: 1px 1px 2px 2px gray;
+}

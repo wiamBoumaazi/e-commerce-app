@@ -1,0 +1,33 @@
+{
+  "name": "final-project-s-h-i-e-l-d",
+  "version": "1.0.0",
+  "description": "",
+  "proxy": "http://localhost:4000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-gateway": "docker build -f devops/gateway.Dockerfile -t gateway-market . && docker tag gateway-market backend/gateway-market && docker push backend/gateway-market",
+    "build-authService": "docker build -f devops/authService.Dockerfile -t auth-market . && docker tag auth-market backend/authService-market && docker push backend/authService-market",
+    "build-frontend": "docker build -f devops/frontend.Dockerfile -t frontend-market . && docker tag frondend-market frontend/market-app && docker push frontend/market-app",
+    "build-inventory": "docker build -f devops/inventory.Dockerfile -t inventory-market . && docker tag market-inventory backend/inventory-market && docker push backend/inventory-market",
+    "build-kafka": "docker build -f devops/kafka.Dockerfile -t kafha-market . && docker tag kafka-market backend/kafka-market && docker push backend/kafka-market",
+    "build-notification": "docker build -f devops/notification.Dockerfile -t notification-market . && docker tag market-notification backend/notification-market && docker push backend/notification-market",
+    "build-transactionService": "docker build -f devops/transactionService.Dockerfile -t transactionservice-market . && docker tag market-transactionservice backend/transactionService-market && docker push backend/transactionService-market",
+    "build-all-docker": "",
+    "deploy": "docker-compose -f devops/docker-compose.yml pull && docker stack deploy -c devops/docker-compose.yml market-app",
+    "stop": "docker stack remove market-app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sfsu-667-spring-2020/final-project-s-h-i-e-l-d.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sfsu-667-spring-2020/final-project-s-h-i-e-l-d/issues"
+  },
+  "homepage": "https://github.com/sfsu-667-spring-2020/final-project-s-h-i-e-l-d#readme",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
